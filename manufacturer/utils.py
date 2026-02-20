@@ -92,50 +92,50 @@ class CommodityAnalytics:
                     "   - Key news affecting prices",
                     "Map the commodity name to its Yahoo Finance ticker:",
                     "   - Energy:",
-                    "       - Crude Oil → 'CL=F'",
-                    "       - Natural Gas → 'NG=F'",
-                    "       - Brent Oil → 'BZ=F'",
-                    "       - Gasoline → 'RB=F'",
-                    "       - Coal → 'MTF=F'",
-                    "       - Diesel → 'CL=F'",
+                    "       - Crude Oil -> 'CL=F'",
+                    "       - Natural Gas -> 'NG=F'",
+                    "       - Brent Oil -> 'BZ=F'",
+                    "       - Gasoline -> 'RB=F'",
+                    "       - Coal -> 'MTF=F'",
+                    "       - Diesel -> 'CL=F'",
                     "   - Metals:",
-                    "       - Gold → 'GC=F'",
-                    "       - Silver → 'SI=F'",
-                    "       - Copper → 'HG=F'",
-                    "       - Aluminum → 'ALI=F'",
-                    "       - Platinum → 'PL=F'",
-                    "       - Iron → '3047.HK'",
+                    "       - Gold -> 'GC=F'",
+                    "       - Silver -> 'SI=F'",
+                    "       - Copper -> 'HG=F'",
+                    "       - Aluminum -> 'ALI=F'",
+                    "       - Platinum -> 'PL=F'",
+                    "       - Iron -> '3047.HK'",
                     # Placeholder - verify correct symbol
-                    "       - Lead → 'Tell that there is no future options for Lead Commodity'",
-                    "       - Nickel → '^SPGSIK'",
-                    "       - Tin → 'TINS.JK'",  # Placeholder - verify correct symbol
-                    "       - Zinc → 'ZINC-USD'",
-                    "       - Antimony → 'UAMY'",  # Placeholder - verify correct symbol
-                    "       - Manganese → 'MN.V'",  # Placeholder - verify correct symbol
+                    "       - Lead -> 'Tell that there is no future options for Lead Commodity'",
+                    "       - Nickel -> '^SPGSIK'",
+                    "       - Tin -> 'TINS.JK'",  # Placeholder - verify correct symbol
+                    "       - Zinc -> 'ZINC-USD'",
+                    "       - Antimony -> 'UAMY'",  # Placeholder - verify correct symbol
+                    "       - Manganese -> 'MN.V'",  # Placeholder - verify correct symbol
                     # Placeholder - verify correct symbol
-                    "       - Titanium → 'Tell that there is no future options for Lead Commodity'",
-                    "       - Tungsten → 'TGN.AX'",  # Placeholder - verify correct symbol
-                    "       - Steel → 'HRC=F'",  # Placeholder - verify correct symbol
+                    "       - Titanium -> 'Tell that there is no future options for Lead Commodity'",
+                    "       - Tungsten -> 'TGN.AX'",  # Placeholder - verify correct symbol
+                    "       - Steel -> 'HRC=F'",  # Placeholder - verify correct symbol
                     "   - Agriculture:",
-                    "       - Coffee → 'KC=F'",
-                    "       - Sugar → 'SB=F'",
-                    "       - Cotton → 'CT=F'",
-                    "       - Soybeans → 'ZS=F'",
-                    "       - Wheat → 'ZW=F'",
-                    "       - Corn → 'ZC=F'",
+                    "       - Coffee -> 'KC=F'",
+                    "       - Sugar -> 'SB=F'",
+                    "       - Cotton -> 'CT=F'",
+                    "       - Soybeans -> 'ZS=F'",
+                    "       - Wheat -> 'ZW=F'",
+                    "       - Corn -> 'ZC=F'",
                     # Placeholder - verify correct symbol
-                    "       - Copra → 'Tell that there is no future options for Lead Commodity'",
+                    "       - Copra -> 'Tell that there is no future options for Lead Commodity'",
                     # Placeholder - verify correct symbol
-                    "       - Hides → 'Tell that there is no future options for Lead Commodity'",
-                    "       - Rubber → 'GT'",  # Placeholder - verify correct symbol
+                    "       - Hides -> 'Tell that there is no future options for Lead Commodity'",
+                    "       - Rubber -> 'GT'",  # Placeholder - verify correct symbol
                     # Placeholder - verify correct symbol
-                    "       - Wool → 'Tell that there is no future options for Lead Commodity'",
-                    "       - Peanuts → 'PEANUTS=F'",  # Placeholder - verify correct symbol
-                    "       - Tea → 'TEA=F'",  # Placeholder - verify correct symbol
-                    "       - Tobacco → 'TOBACCO=F'",  # Placeholder - verify correct symbol
+                    "       - Wool -> 'Tell that there is no future options for Lead Commodity'",
+                    "       - Peanuts -> 'PEANUTS=F'",  # Placeholder - verify correct symbol
+                    "       - Tea -> 'TEA=F'",  # Placeholder - verify correct symbol
+                    "       - Tobacco -> 'TOBACCO=F'",  # Placeholder - verify correct symbol
                     "   - Other:",
-                    "       - Other Agriculture → 'OTHER_AGRI=F'",  # Placeholder
-                    "       - Other Metals → 'OTHER_METALS=F'",
+                    "       - Other Agriculture -> 'OTHER_AGRI=F'",  # Placeholder
+                    "       - Other Metals -> 'OTHER_METALS=F'",
                     "If Found Nothing , Display there is no Future Option For required Commodity"
                     "If no data found, state: 'No future options available for this commodity'"
                 ]
@@ -155,5 +155,15 @@ class CommodityAnalytics:
                 return {
                     "error": "Analytics service configuration error. Please try again or contact support.",
                     "analytics": "No analytics available.",
+                }
+            # Yahoo Finance rate limit (429) or similar - show clear message
+            if "429" in err_msg or "Too Many Requests" in err_msg or "rate" in err_msg.lower():
+                return {
+                    "error": "Yahoo Finance is temporarily limiting requests. Please try again in 5–10 minutes.",
+                    "analytics": (
+                        "**Data temporarily unavailable**\n\n"
+                        "Yahoo Finance has rate-limited this session. Please wait a few minutes and try again. "
+                        "If you run analytics often, space out requests to avoid limits."
+                    ),
                 }
             return {"error": err_msg}

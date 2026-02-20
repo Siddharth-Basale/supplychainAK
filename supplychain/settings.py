@@ -12,6 +12,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import sys
+
+# On Windows, default console encoding (cp1252) can't encode Unicode (e.g. → in logs).
+# Avoid UnicodeEncodeError when libraries log messages containing such characters.
+if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 # Load .env from project root so os.getenv() sees TAVILY_API_KEY, etc.
 from dotenv import load_dotenv
