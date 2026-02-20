@@ -402,7 +402,9 @@ def get_commodity_price(request):
 
     fetcher = CommodityPriceFetcher()
     price_data = fetcher.fetch_price(commodity)
-    return JsonResponse(price_data)
+    # Ensure all values are JSON-serializable (avoid Pydantic/by_alias issues from libs)
+    safe_data = {str(k): str(v) for k, v in price_data.items()}
+    return JsonResponse(safe_data)
 
 
 # manufacturer/views.py

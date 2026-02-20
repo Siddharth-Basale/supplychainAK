@@ -11196,3 +11196,331 @@ Traceback (most recent call last):
     raise SMTPAuthenticationError(code, resp)
 smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2a7190aa31esm23320605ad.16 - gsmtp')
 2026-01-17 01:24:07,509 - INFO - D:\Projects\Sushil's supplychain\SupplyChain\supplychain\settings.py changed, reloading.
+2026-02-20 23:43:31,787 - WARNING - Not Found: /favicon.ico
+2026-02-20 23:45:23,493 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-8439aaba-a2c0-42c2-aa92-c76b94d3c05f', 'json_data': {'messages': [{'role': 'developer', 'content': "You are a specialized AI agent that estimates commodity price ranges.\n    Analyze the available data and provide ONLY a reasonable price RANGE in USD per kg for the Indian region.\n    Format should be: 'X-Y USD/kg' where X is the lower estimate and Y is the higher estimate.\n    If insufficient data exists, return 'Not available'."}, {'role': 'user', 'content': 'Current market price range of steel in USD per kg from Indian markets'}], 'model': 'gpt-4o-mini', 'temperature': 0.4, 'tool_choice': 'auto', 'tools': [{'type': 'function', 'function': {'name': 'web_search_using_tavily', 'description': 'Use this function to search the web for a given query.\nThis function uses the Tavily API to provide realtime online information about the query.', 'parameters': {'type': 'object', 'properties': {'query': {'type': 'string', 'description': '(str) Query to search for.'}, 'max_results': {'type': 'number', 'description': '(int) Maximum number of results to return. Defaults to 5.'}}, 'required': ['query']}}}]}}
+2026-02-20 23:45:23,538 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-02-20 23:45:23,538 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-02-20 23:45:23,623 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BEB5B58EC0>
+2026-02-20 23:45:23,623 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BEB4513550> server_hostname='api.openai.com' timeout=5.0
+2026-02-20 23:45:23,667 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BEB5B5AC90>
+2026-02-20 23:45:23,668 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-02-20 23:45:23,669 - DEBUG - send_request_headers.complete
+2026-02-20 23:45:23,670 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-02-20 23:45:23,670 - DEBUG - send_request_body.complete
+2026-02-20 23:45:23,670 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-02-20 23:45:24,010 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Fri, 20 Feb 2026 18:15:25 GMT'), (b'Content-Type', b'text/plain'), (b'Content-Length', b'410'), (b'Connection', b'keep-alive'), (b'x-openai-ide-error-code', b'invalid_api_key'), (b'x-openai-authorization-error', b'401'), (b'x-error-json', b'ewogICJlcnJvciI6IHsKICAgICJtZXNzYWdlIjogIkluY29ycmVjdCBBUEkga2V5IHByb3ZpZGVkOiBzay1wcm9qLSoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqeEJZQS4gWW91IGNhbiBmaW5kIHlvdXIgQVBJIGtleSBhdCBodHRwczovL3BsYXRmb3JtLm9wZW5haS5jb20vYWNjb3VudC9hcGkta2V5cy4iLAogICAgInR5cGUiOiAiaW52YWxpZF9yZXF1ZXN0X2Vycm9yIiwKICAgICJjb2RlIjogImludmFsaWRfYXBpX2tleSIsCiAgICAicGFyYW0iOiBudWxsCiAgfSwKICAic3RhdHVzIjogNDAxCn0='), (b'x-request-id', b'req_f474546ad5b749a9b3259d828d054893'), (b'x-datadog-trace-id', b'13444667615826109278'), (b'x-datadog-parent-id', b'6632031308311296484'), (b'x-datadog-sampling-priority', b'0'), (b'x-openai-internal-caller', b'unknown_through_ide'), (b'x-openai-proxy-wasm', b'v0.1'), (b'Server', b'cloudflare'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=49iOWcSm6OCQj6e.CpOJslapg.6zlVJ3niCDY3FlDbQ-1771611324.9158528-1.0.1.1-IB1DIGp4ayPmbRohVHpRu6rcgHFeck1f92mwslsqhOV4CwV_.5dCqvycEGQ_egwVA7fMWzcOJgYnWJJ_Pm2K71XCZMooSXYgr8WGQJ.7y6_9tCamMBMSl5cQ_xrjfhsS; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:45:25 GMT'), (b'set-cookie', b'_cfuvid=hS0WkU__k_jnIIPsUGpMCjPsHcPZgZN1.iSdC55.8PM-1771611324.9158528-1.0.1.1-mXAfzRyN_bFTEeBCISYmqKts8f1wAgMuvbHSNbNDfKc; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'CF-RAY', b'9d0ffd3cbbf10c17-NAG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-02-20 23:45:24,012 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-02-20 23:45:24,012 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-02-20 23:45:24,012 - DEBUG - receive_response_body.complete
+2026-02-20 23:45:24,012 - DEBUG - response_closed.started
+2026-02-20 23:45:24,013 - DEBUG - response_closed.complete
+2026-02-20 23:45:24,013 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers([('date', 'Fri, 20 Feb 2026 18:15:25 GMT'), ('content-type', 'text/plain'), ('content-length', '410'), ('connection', 'keep-alive'), ('x-openai-ide-error-code', 'invalid_api_key'), ('x-openai-authorization-error', '401'), ('x-error-json', 'ewogICJlcnJvciI6IHsKICAgICJtZXNzYWdlIjogIkluY29ycmVjdCBBUEkga2V5IHByb3ZpZGVkOiBzay1wcm9qLSoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqeEJZQS4gWW91IGNhbiBmaW5kIHlvdXIgQVBJIGtleSBhdCBodHRwczovL3BsYXRmb3JtLm9wZW5haS5jb20vYWNjb3VudC9hcGkta2V5cy4iLAogICAgInR5cGUiOiAiaW52YWxpZF9yZXF1ZXN0X2Vycm9yIiwKICAgICJjb2RlIjogImludmFsaWRfYXBpX2tleSIsCiAgICAicGFyYW0iOiBudWxsCiAgfSwKICAic3RhdHVzIjogNDAxCn0='), ('x-request-id', 'req_f474546ad5b749a9b3259d828d054893'), ('x-datadog-trace-id', '13444667615826109278'), ('x-datadog-parent-id', '6632031308311296484'), ('x-datadog-sampling-priority', '0'), ('x-openai-internal-caller', 'unknown_through_ide'), ('x-openai-proxy-wasm', 'v0.1'), ('server', 'cloudflare'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=49iOWcSm6OCQj6e.CpOJslapg.6zlVJ3niCDY3FlDbQ-1771611324.9158528-1.0.1.1-IB1DIGp4ayPmbRohVHpRu6rcgHFeck1f92mwslsqhOV4CwV_.5dCqvycEGQ_egwVA7fMWzcOJgYnWJJ_Pm2K71XCZMooSXYgr8WGQJ.7y6_9tCamMBMSl5cQ_xrjfhsS; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:45:25 GMT'), ('set-cookie', '_cfuvid=hS0WkU__k_jnIIPsUGpMCjPsHcPZgZN1.iSdC55.8PM-1771611324.9158528-1.0.1.1-mXAfzRyN_bFTEeBCISYmqKts8f1wAgMuvbHSNbNDfKc; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('x-content-type-options', 'nosniff'), ('cf-ray', '9d0ffd3cbbf10c17-NAG'), ('alt-svc', 'h3=":443"; ma=86400')])
+2026-02-20 23:45:24,014 - DEBUG - request_id: req_f474546ad5b749a9b3259d828d054893
+2026-02-20 23:45:24,015 - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "D:\Projects\Sushil's supplychain\SupplyChain\.venv\Lib\site-packages\openai\_base_client.py", line 1027, in request
+    response.raise_for_status()
+  File "D:\Projects\Sushil's supplychain\SupplyChain\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-02-20 23:45:24,016 - DEBUG - Not retrying
+2026-02-20 23:45:24,016 - DEBUG - Re-raising status error
+2026-02-20 23:46:12,600 - DEBUG - close.started
+2026-02-20 23:46:12,600 - DEBUG - close.complete
+2026-02-20 23:46:33,115 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-df737162-bf72-4a38-9f11-a4b1fe0f81e3', 'json_data': {'messages': [{'role': 'developer', 'content': "You are a specialized AI agent that estimates commodity price ranges.\n    Analyze the available data and provide ONLY a reasonable price RANGE in USD per kg for the Indian region.\n    Format should be: 'X-Y USD/kg' where X is the lower estimate and Y is the higher estimate.\n    If insufficient data exists, return 'Not available'."}, {'role': 'user', 'content': 'Current market price range of steel in USD per kg from Indian markets'}], 'model': 'gpt-4o-mini', 'temperature': 0.4, 'tool_choice': 'auto', 'tools': [{'type': 'function', 'function': {'name': 'web_search_using_tavily', 'description': 'Use this function to search the web for a given query.\nThis function uses the Tavily API to provide realtime online information about the query.', 'parameters': {'type': 'object', 'properties': {'query': {'type': 'string', 'description': '(str) Query to search for.'}, 'max_results': {'type': 'number', 'description': '(int) Maximum number of results to return. Defaults to 5.'}}, 'required': ['query']}}}]}}
+2026-02-20 23:46:33,161 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-02-20 23:46:33,162 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-02-20 23:46:33,237 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E26E54D10>
+2026-02-20 23:46:33,238 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000022E26B3C6D0> server_hostname='api.openai.com' timeout=5.0
+2026-02-20 23:46:33,290 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E26E08740>
+2026-02-20 23:46:33,291 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-02-20 23:46:33,293 - DEBUG - send_request_headers.complete
+2026-02-20 23:46:33,293 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-02-20 23:46:33,293 - DEBUG - send_request_body.complete
+2026-02-20 23:46:33,293 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-02-20 23:46:35,599 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 20 Feb 2026 18:16:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'persnal-rkdfe2'), (b'openai-processing-ms', b'974'), (b'openai-project', b'proj_DBYXL8pA2s5GxG5IENIYMwm8'), (b'openai-version', b'2020-10-01'), (b'Server', b'cloudflare'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199897'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'30ms'), (b'x-request-id', b'req_e1bbc954e3254e958f596978c8cd8494'), (b'x-openai-proxy-wasm', b'v0.1'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=6P9blFlBJd.cubgJNnzr._j.zzevSzwfnTDAdfhlv3E-1771611394.5466533-1.0.1.1-iVfRKMF_f_hOJ81ZLiKrtTyzpmHcdIkxXjnnyjnX4_YWA1MgmAYPMcX7463ZDPCY2ZCp5X9uTKONswmTUPFvzAbZO6SB2CYm8aHGSf9uZpV3XNfttLHPpbj7DEBU6BCC; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:46:36 GMT'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9d0ffeefea729a87-NAG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-02-20 23:46:35,601 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-20 23:46:35,602 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-02-20 23:46:35,605 - DEBUG - receive_response_body.complete
+2026-02-20 23:46:35,605 - DEBUG - response_closed.started
+2026-02-20 23:46:35,605 - DEBUG - response_closed.complete
+2026-02-20 23:46:35,605 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 20 Feb 2026 18:16:36 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'persnal-rkdfe2', 'openai-processing-ms': '974', 'openai-project': 'proj_DBYXL8pA2s5GxG5IENIYMwm8', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199897', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '30ms', 'x-request-id': 'req_e1bbc954e3254e958f596978c8cd8494', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=6P9blFlBJd.cubgJNnzr._j.zzevSzwfnTDAdfhlv3E-1771611394.5466533-1.0.1.1-iVfRKMF_f_hOJ81ZLiKrtTyzpmHcdIkxXjnnyjnX4_YWA1MgmAYPMcX7463ZDPCY2ZCp5X9uTKONswmTUPFvzAbZO6SB2CYm8aHGSf9uZpV3XNfttLHPpbj7DEBU6BCC; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:46:36 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d0ffeefea729a87-NAG', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-02-20 23:46:35,607 - DEBUG - request_id: req_e1bbc954e3254e958f596978c8cd8494
+2026-02-20 23:46:35,635 - DEBUG - Starting new HTTPS connection (1): api.tavily.com:443
+2026-02-20 23:46:49,015 - DEBUG - https://api.tavily.com:443 "POST /search HTTP/1.1" 200 8936
+2026-02-20 23:46:49,389 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-5269f74c-d0be-4c01-89a9-b93ffcdb99fb', 'json_data': {'messages': [{'role': 'developer', 'content': "You are a specialized AI agent that estimates commodity price ranges.\n    Analyze the available data and provide ONLY a reasonable price RANGE in USD per kg for the Indian region.\n    Format should be: 'X-Y USD/kg' where X is the lower estimate and Y is the higher estimate.\n    If insufficient data exists, return 'Not available'."}, {'role': 'user', 'content': 'Current market price range of steel in USD per kg from Indian markets'}, {'role': 'assistant', 'tool_calls': [{'id': 'call_dIAaPCX09esPErkbY7YZQIsG', 'function': {'arguments': '{"query":"current market price range of steel in India USD per kg"}', 'name': 'web_search_using_tavily'}, 'type': 'function'}], 'content': None}, {'role': 'tool', 'content': "# current market price range of steel in India USD per kg\n\n### Summary\nThe current market price range of steel in India is approximately $18 to $65 per kg. Prices vary based on type and origin. As of February 2026, the average price is around $6.73 per kg.\n\n### [Steel Price Today | Steel Rate Per Kg Today In India - 20 Feb 2026](https://www.bankbazaar.com/commodity-price/steel-price.html)\nBankBazaar\nFree Credit Score\n\nCredit Score\n\nFREE\nDownload App\n\nDownload Mobile App\n\nBadge\n\n# Steel Price Today\n\nIn India, Today's Steel Price opened at Rs.44,420.00, and it is witnessing a declining in trend of0.02%.\n\nFree Credit Score Check Now\n\nSteel, a metal that has been forged by humans for centuries, continues to be the most reliable and versatile material in manufacturing. Composed of iron, carbon, and various other elements, steel finds its application in numerous industries, from automotive to construction, and has maintained its prominence since the Iron Age, which dates back 4000 years. [...] Change%\n\n18-Feb-2026\n\n44,420.00\n\n-0.02%\n\n17-Feb-2026\n\n44,430.00\n\n-0.45%\n\n16-Feb-2026\n\n44,630.00\n\n-0.29%\n\n13-Feb-2026\n\n44,760.00\n\n-0.22%\n\n12-Feb-2026\n\n44,860.00\n\n-0.47%\n\n11-Feb-2026\n\n45,070.00\n\n-0.90%\n\n10-Feb-2026\n\n45,480.00\n\n0.42%\n\n9-Feb-2026\n\n45,290.00\n\n0.62%\n\n6-Feb-2026\n\n45,010.00\n\n-0.02%\n\n5-Feb-2026\n\n45,020.00\n\n0%\n\nFree Credit Score Check Now\n\n## Steel Historical Prices\n\nHere is the table displaying the historical data for monthly steel prices [...] | Date | Price | Volume |\n --- \n| Janaury 2026 | Rs.44,860.00 | 6.20% |\n| December 2025 | Rs.42,240.00 | 4.71% |\n| November 2025 | Rs.40,340.00 | 4.29% |\n| October 2025 | Rs.38,680.00 | -2.89% |\n| September 2025 | Rs.39,830.00 | 0.23% |\n| August 2025 | Rs.39,740.00 | -2.21% |\n| July 2025 | Rs.40,640.00 | -1.31% |\n| June 2025 | Rs.41,180.00 | -1.62% |\n| May 2025 | Rs.41,860.00 | -1.88% |\n| April 2025 | Rs.42,660.00 | -2.11% |\n| March 2025 | Rs.43,580.00 | 2.37% |\n| February 2025 | Rs.42,570.00 | -0.93% |\n| January 2025 | Rs.42,970.00 | -0.46% |\n\nDate\n\nPrice\n\nVolume\n\nJanaury 2026\n\nRs.44,860.00\n\n6.20%\n\nDecember 2025\n\nRs.42,240.00\n\n4.71%\n\nNovember 2025\n\nRs.40,340.00\n\n4.29%\n\nOctober 2025\n\nRs.38,680.00\n\n-2.89%\n\nSeptember 2025\n\nRs.39,830.00\n\n0.23%\n\nAugust 2025\n\nRs.39,740.00\n\n-2.21%\n\nJuly 2025\n\n### [Alloy Steel price per kg in India](https://www.stindia.com/alloy-steel-price-per-kg-india.html)\n| 20 | 500 | 1,764.71 |  |  |  | 1,558.82 | 1,566.18 | 1,911.76 | 1,838.24 | 1,867.65 | 1,551.47 |\n| 22 | 550 |  |  |  |  | 1,588.24 | 1,595.59 | 2,058.82 | 1,911.76 | 2,014.71 | 1,580.88 |\n| 24 | 600 |  |  |  |  | 1,588.24 | 1,595.59 | 2,058.82 | 1,911.76 | 2,014.71 | 1,580.88 | [...] | 20 | 500 | 2,647.06 | – | – | – | 2,441.18 | 2,448.53 | 2,794.12 | 2,720.59 | 2,750.00 | 2,433.82 |\n| 22 | 550 | – | – | – | – | 2,470.59 | 2,477.94 | 2,941.18 | 2,794.12 | 2,897.06 | 2,463.24 |\n| 24 | 600 | – | – | – | – | 2,470.59 | 2,477.94 | 2,941.18 | 2,794.12 | 2,897.06 | 2,463.24 | [...] | 20 | 500 | 2,647.06 | – | – | – | 2,441.18 | 2,448.53 | 2,794.12 | 2,720.59 | 2,750.00 | 2,433.82 |\n| 22 | 550 | – | – | – | – | 2,470.59 | 2,477.94 | 2,941.18 | 2,794.12 | 2,897.06 | 2,463.24 |\n| 24 | 600 | – | – | – | – | 2,470.59 | 2,477.94 | 2,941.18 | 2,794.12 | 2,897.06 | 2,463.24 |\n\n### [India Steel Prices - MEPS International](https://mepsinternational.com/gb/en/products/india-steel-prices)\nIndia Steel Prices in Kilograms (KG) ; Nov-2024, 48.000, 50.000, 56.000, 61.000 ; Dec-2024, 47.000, 49.500, 54.500, 61.000\n\n", 'tool_call_id': 'call_dIAaPCX09esPErkbY7YZQIsG'}], 'model': 'gpt-4o-mini', 'temperature': 0.4, 'tool_choice': 'auto', 'tools': [{'type': 'function', 'function': {'name': 'web_search_using_tavily', 'description': 'Use this function to search the web for a given query.\nThis function uses the Tavily API to provide realtime online information about the query.', 'parameters': {'type': 'object', 'properties': {'query': {'type': 'string', 'description': '(str) Query to search for.'}, 'max_results': {'type': 'number', 'description': '(int) Maximum number of results to return. Defaults to 5.'}}, 'required': ['query']}}}]}}
+2026-02-20 23:46:49,401 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-02-20 23:46:49,402 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-02-20 23:46:49,484 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E26F10470>
+2026-02-20 23:46:49,484 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000022E26A90A50> server_hostname='api.openai.com' timeout=5.0
+2026-02-20 23:46:49,534 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E26F10FB0>
+2026-02-20 23:46:49,534 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-02-20 23:46:49,534 - DEBUG - send_request_headers.complete
+2026-02-20 23:46:49,535 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-02-20 23:46:49,535 - DEBUG - send_request_body.complete
+2026-02-20 23:46:49,535 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-02-20 23:46:51,167 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 20 Feb 2026 18:16:52 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'persnal-rkdfe2'), (b'openai-processing-ms', b'435'), (b'openai-project', b'proj_DBYXL8pA2s5GxG5IENIYMwm8'), (b'openai-version', b'2020-10-01'), (b'Server', b'cloudflare'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199016'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'295ms'), (b'x-request-id', b'req_782b92ae64d148de8dcb9fe5831612ed'), (b'x-openai-proxy-wasm', b'v0.1'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=2TX1w9WyO8FczJy7__OBxBP_yAl5XNWYP8XGvsJVCQA-1771611410.7826047-1.0.1.1-DCyCyjLzGsAT5_UrV0va4iXhT1Il4ubjNV.FgcRCcrj7cIvBsmspD4RgFbpmz79g8e_.gE7wdkd5wTkUP92IO4MHzDorIQywzRKi1pZzNE2fdEyJO1guXlT..gpHv2sB; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:46:52 GMT'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9d0fff5558779a78-NAG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-02-20 23:46:51,168 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-20 23:46:51,168 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-02-20 23:46:51,169 - DEBUG - receive_response_body.complete
+2026-02-20 23:46:51,170 - DEBUG - response_closed.started
+2026-02-20 23:46:51,170 - DEBUG - response_closed.complete
+2026-02-20 23:46:51,170 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 20 Feb 2026 18:16:52 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'persnal-rkdfe2', 'openai-processing-ms': '435', 'openai-project': 'proj_DBYXL8pA2s5GxG5IENIYMwm8', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199016', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '295ms', 'x-request-id': 'req_782b92ae64d148de8dcb9fe5831612ed', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=2TX1w9WyO8FczJy7__OBxBP_yAl5XNWYP8XGvsJVCQA-1771611410.7826047-1.0.1.1-DCyCyjLzGsAT5_UrV0va4iXhT1Il4ubjNV.FgcRCcrj7cIvBsmspD4RgFbpmz79g8e_.gE7wdkd5wTkUP92IO4MHzDorIQywzRKi1pZzNE2fdEyJO1guXlT..gpHv2sB; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:46:52 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d0fff5558779a78-NAG', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-02-20 23:46:51,171 - DEBUG - request_id: req_782b92ae64d148de8dcb9fe5831612ed
+2026-02-20 23:46:51,576 - DEBUG - connect_tcp.started host='api.phidata.com' port=443 local_address=None timeout=60 socket_options=None
+2026-02-20 23:46:51,818 - DEBUG - close.started
+2026-02-20 23:46:51,819 - DEBUG - close.complete
+2026-02-20 23:46:51,948 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E26E55010>
+2026-02-20 23:46:51,949 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000022E26F36550> server_hostname='api.phidata.com' timeout=60
+2026-02-20 23:46:52,459 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E26E569F0>
+2026-02-20 23:46:52,459 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-02-20 23:46:52,460 - DEBUG - send_request_headers.complete
+2026-02-20 23:46:52,460 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-02-20 23:46:52,461 - DEBUG - send_request_body.complete
+2026-02-20 23:46:52,461 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-02-20 23:46:52,719 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 20 Feb 2026 18:16:53 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'72'), (b'Connection', b'keep-alive'), (b'server', b'uvicorn')])
+2026-02-20 23:46:52,719 - INFO - HTTP Request: POST https://api.phidata.com/v1/telemetry/agent/run/create "HTTP/1.1 200 OK"
+2026-02-20 23:46:52,720 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-02-20 23:46:52,720 - DEBUG - receive_response_body.complete
+2026-02-20 23:46:52,720 - DEBUG - response_closed.started
+2026-02-20 23:46:52,721 - DEBUG - response_closed.complete
+2026-02-20 23:46:52,721 - DEBUG - close.started
+2026-02-20 23:46:52,721 - DEBUG - close.complete
+2026-02-20 23:46:58,372 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-02-20 23:46:58,372 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-02-20 23:46:58,418 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E269637D0>
+2026-02-20 23:46:58,418 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000022E26B3E350> server_hostname='api.openai.com' timeout=5.0
+2026-02-20 23:46:58,483 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E269613A0>
+2026-02-20 23:46:58,483 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-02-20 23:46:58,485 - DEBUG - send_request_headers.complete
+2026-02-20 23:46:58,485 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-02-20 23:46:58,485 - DEBUG - send_request_body.complete
+2026-02-20 23:46:58,485 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-02-20 23:47:02,677 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 20 Feb 2026 18:17:03 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'persnal-rkdfe2'), (b'openai-processing-ms', b'2948'), (b'openai-project', b'proj_DBYXL8pA2s5GxG5IENIYMwm8'), (b'openai-version', b'2020-10-01'), (b'Server', b'cloudflare'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199448'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'165ms'), (b'x-request-id', b'req_381f9e3fbc08404b8955f01d10b0a6d1'), (b'x-openai-proxy-wasm', b'v0.1'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=dorRoHTFUmgGFHhVmg7Y70hLuLkEstnKK6RZ19n6GXY-1771611419.737891-1.0.1.1-K5HZzWE6H7GbNytXLJfOSYBWnvdJwxMfb47KSdO7xPoFoitmytkq0Tt8L7V7fz3oErpdhgw5oHDibZgX8pM13fbD3AFfUSUNYSNYxdpmduWmVfYqrEh3DZAKVVlUS9tW; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:47:03 GMT'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9d0fff8d5e6b9a75-NAG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-02-20 23:47:02,679 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-20 23:47:02,679 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-02-20 23:47:02,687 - DEBUG - receive_response_body.complete
+2026-02-20 23:47:02,687 - DEBUG - response_closed.started
+2026-02-20 23:47:02,687 - DEBUG - response_closed.complete
+2026-02-20 23:47:02,687 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 20 Feb 2026 18:17:03 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'persnal-rkdfe2', 'openai-processing-ms': '2948', 'openai-project': 'proj_DBYXL8pA2s5GxG5IENIYMwm8', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199448', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '165ms', 'x-request-id': 'req_381f9e3fbc08404b8955f01d10b0a6d1', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=dorRoHTFUmgGFHhVmg7Y70hLuLkEstnKK6RZ19n6GXY-1771611419.737891-1.0.1.1-K5HZzWE6H7GbNytXLJfOSYBWnvdJwxMfb47KSdO7xPoFoitmytkq0Tt8L7V7fz3oErpdhgw5oHDibZgX8pM13fbD3AFfUSUNYSNYxdpmduWmVfYqrEh3DZAKVVlUS9tW; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:47:03 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d0fff8d5e6b9a75-NAG', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-02-20 23:47:02,688 - DEBUG - request_id: req_381f9e3fbc08404b8955f01d10b0a6d1
+2026-02-20 23:47:02,693 - DEBUG - close.started
+2026-02-20 23:47:02,694 - DEBUG - close.complete
+2026-02-20 23:47:02,717 - DEBUG - Using User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15
+2026-02-20 23:47:02,717 - DEBUG - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/HRC=F
+2026-02-20 23:47:02,718 - DEBUG - Entering get()
+2026-02-20 23:47:02,718 - DEBUG -  Entering _make_request()
+2026-02-20 23:47:02,718 - DEBUG - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/HRC=F
+2026-02-20 23:47:02,718 - DEBUG - params={'modules': 'financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'HRC=F'}
+2026-02-20 23:47:02,719 - DEBUG -   Entering _get_cookie_and_crumb()
+2026-02-20 23:47:02,719 - DEBUG - cookie_mode = 'basic'
+2026-02-20 23:47:02,719 - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:02,750 - DEBUG - ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+2026-02-20 23:47:02,750 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['basic', 1, 0])
+2026-02-20 23:47:02,752 - DEBUG - Starting new HTTPS connection (1): fc.yahoo.com:443
+2026-02-20 23:47:04,148 - DEBUG - https://fc.yahoo.com:443 "GET / HTTP/1.1" 404 4742
+2026-02-20 23:47:04,149 - DEBUG - ('DELETE FROM "_cookieschema" WHERE ("_cookieschema"."strategy" = ?)', ['basic'])
+2026-02-20 23:47:04,162 - DEBUG - ('BEGIN', None)
+2026-02-20 23:47:04,162 - DEBUG - ('INSERT INTO "_cookieschema" ("strategy", "fetch_date", "cookie_bytes") VALUES (?, ?, ?)', ['basic', '2026-02-20T23:47:04.162297', <memory at 0x0000022E270E3880>])
+2026-02-20 23:47:04,164 - DEBUG - fetched basic cookie = <Cookie A3=d=AQABBCGlmGkCEPV7m4JADSFxA0PYTuIMfhkFEgEBAQH2mWmiaVkWyyMA_eMDAA&S=AQAAAtinpB4p0FMv1sG5ebGxg7U for .yahoo.com/>
+2026-02-20 23:47:04,164 - DEBUG - reusing cookie
+2026-02-20 23:47:04,165 - DEBUG - Starting new HTTPS connection (1): query1.finance.yahoo.com:443
+2026-02-20 23:47:04,857 - DEBUG - https://query1.finance.yahoo.com:443 "GET /v1/test/getcrumb HTTP/1.1" 429 19
+2026-02-20 23:47:04,858 - DEBUG - crumb = 'Too Many Requests
+'
+2026-02-20 23:47:04,858 - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:04,858 - DEBUG -   Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:04,860 - DEBUG - Starting new HTTPS connection (1): query2.finance.yahoo.com:443
+2026-02-20 23:47:05,515 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v10/finance/quoteSummary/HRC=F?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=HRC%3DF&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:05,515 - DEBUG - response code=429
+2026-02-20 23:47:05,516 - DEBUG - toggling cookie strategy basic -> csrf
+2026-02-20 23:47:05,516 - DEBUG -   Entering _get_cookie_and_crumb()
+2026-02-20 23:47:05,516 - DEBUG - cookie_mode = 'csrf'
+2026-02-20 23:47:05,516 - DEBUG -    Entering _get_crumb_csrf()
+2026-02-20 23:47:05,516 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['csrf', 1, 0])
+2026-02-20 23:47:05,518 - DEBUG - Starting new HTTPS connection (1): guce.yahoo.com:443
+2026-02-20 23:47:06,351 - DEBUG - https://guce.yahoo.com:443 "GET /consent HTTP/1.1" 302 0
+2026-02-20 23:47:06,354 - DEBUG - Starting new HTTPS connection (1): www.yahoo.com:443
+2026-02-20 23:47:07,666 - DEBUG - https://www.yahoo.com:443 "GET /?guccounter=1 HTTP/1.1" 200 None
+2026-02-20 23:47:08,064 - DEBUG - Failed to find "csrfToken" in response
+2026-02-20 23:47:08,065 - DEBUG -    Exiting _get_crumb_csrf()
+2026-02-20 23:47:08,065 - DEBUG - toggling cookie strategy csrf -> basic
+2026-02-20 23:47:08,065 - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:08,065 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['basic', 1, 0])
+2026-02-20 23:47:08,065 - DEBUG - loaded persistent cookie
+2026-02-20 23:47:08,066 - DEBUG - reusing cookie
+2026-02-20 23:47:08,181 - DEBUG - https://query1.finance.yahoo.com:443 "GET /v1/test/getcrumb HTTP/1.1" 429 19
+2026-02-20 23:47:08,182 - DEBUG - crumb = 'Too Many Requests
+'
+2026-02-20 23:47:08,183 - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:08,183 - DEBUG -   Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:08,411 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v10/finance/quoteSummary/HRC=F?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=HRC%3DF&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:08,411 - DEBUG - response code=429
+2026-02-20 23:47:08,413 - DEBUG - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/HRC=F
+2026-02-20 23:47:08,414 - DEBUG - Entering get()
+2026-02-20 23:47:08,414 - DEBUG -  Entering _make_request()
+2026-02-20 23:47:08,414 - DEBUG - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/HRC=F
+2026-02-20 23:47:08,414 - DEBUG - params={'modules': 'recommendationTrend', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'HRC=F'}
+2026-02-20 23:47:08,415 - DEBUG -   Entering _get_cookie_and_crumb()
+2026-02-20 23:47:08,415 - DEBUG - cookie_mode = 'basic'
+2026-02-20 23:47:08,415 - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:08,415 - DEBUG - reusing cookie
+2026-02-20 23:47:08,415 - DEBUG - reusing crumb
+2026-02-20 23:47:08,415 - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:08,416 - DEBUG -   Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:08,527 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v10/finance/quoteSummary/HRC=F?modules=recommendationTrend&corsDomain=finance.yahoo.com&formatted=false&symbol=HRC%3DF&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:08,528 - DEBUG - response code=429
+2026-02-20 23:47:08,528 - DEBUG - toggling cookie strategy basic -> csrf
+2026-02-20 23:47:08,528 - DEBUG -   Entering _get_cookie_and_crumb()
+2026-02-20 23:47:08,528 - DEBUG - cookie_mode = 'csrf'
+2026-02-20 23:47:08,528 - DEBUG -    Entering _get_crumb_csrf()
+2026-02-20 23:47:08,529 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['csrf', 1, 0])
+2026-02-20 23:47:08,646 - DEBUG - https://guce.yahoo.com:443 "GET /consent HTTP/1.1" 302 0
+2026-02-20 23:47:09,166 - DEBUG - https://www.yahoo.com:443 "GET /?guccounter=1 HTTP/1.1" 200 None
+2026-02-20 23:47:09,503 - DEBUG - Failed to find "csrfToken" in response
+2026-02-20 23:47:09,503 - DEBUG -    Exiting _get_crumb_csrf()
+2026-02-20 23:47:09,505 - DEBUG - toggling cookie strategy csrf -> basic
+2026-02-20 23:47:09,505 - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:09,505 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['basic', 1, 0])
+2026-02-20 23:47:09,506 - DEBUG - loaded persistent cookie
+2026-02-20 23:47:09,506 - DEBUG - reusing cookie
+2026-02-20 23:47:09,726 - DEBUG - https://query1.finance.yahoo.com:443 "GET /v1/test/getcrumb HTTP/1.1" 429 19
+2026-02-20 23:47:09,726 - DEBUG - crumb = 'Too Many Requests
+'
+2026-02-20 23:47:09,727 - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:09,727 - DEBUG -   Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:09,843 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v10/finance/quoteSummary/HRC=F?modules=recommendationTrend&corsDomain=finance.yahoo.com&formatted=false&symbol=HRC%3DF&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:09,845 - DEBUG - response code=429
+2026-02-20 23:47:09,848 - DEBUG - Entering post()
+2026-02-20 23:47:09,848 - DEBUG -  Entering _make_request()
+2026-02-20 23:47:09,848 - DEBUG - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-02-20 23:47:09,848 - DEBUG - params=None
+2026-02-20 23:47:09,848 - DEBUG -   Entering _get_cookie_and_crumb()
+2026-02-20 23:47:09,848 - DEBUG - cookie_mode = 'basic'
+2026-02-20 23:47:09,848 - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:09,849 - DEBUG - reusing cookie
+2026-02-20 23:47:09,849 - DEBUG - reusing crumb
+2026-02-20 23:47:09,849 - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:09,849 - DEBUG -   Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:09,851 - DEBUG - Starting new HTTPS connection (1): finance.yahoo.com:443
+2026-02-20 23:47:10,624 - DEBUG - https://finance.yahoo.com:443 "POST /xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 200 135
+2026-02-20 23:47:10,625 - DEBUG - response code=200
+2026-02-20 23:47:10,625 - DEBUG -  Exiting _make_request()
+2026-02-20 23:47:10,626 - DEBUG - Exiting post()
+2026-02-20 23:47:10,629 - DEBUG - Entering history()
+2026-02-20 23:47:10,666 - DEBUG - ('CREATE TABLE IF NOT EXISTS "_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+2026-02-20 23:47:10,666 - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['HRC=F', 1, 0])
+2026-02-20 23:47:14,461 - DEBUG -  Entering history()
+2026-02-20 23:47:14,462 - DEBUG - HRC=F: Yahoo GET parameters: {'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-02-20 23:47:14,462 - DEBUG -   Entering get()
+2026-02-20 23:47:14,462 - DEBUG -    Entering _make_request()
+2026-02-20 23:47:14,462 - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/HRC=F
+2026-02-20 23:47:14,462 - DEBUG - params={'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-02-20 23:47:14,463 - DEBUG -     Entering _get_cookie_and_crumb()
+2026-02-20 23:47:14,463 - DEBUG - cookie_mode = 'basic'
+2026-02-20 23:47:14,463 - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:14,463 - DEBUG - reusing cookie
+2026-02-20 23:47:14,463 - DEBUG - reusing crumb
+2026-02-20 23:47:14,463 - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:14,463 - DEBUG -     Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:14,594 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/HRC=F?range=3mo&interval=1d&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:14,594 - DEBUG - response code=429
+2026-02-20 23:47:14,595 - DEBUG - toggling cookie strategy basic -> csrf
+2026-02-20 23:47:14,595 - DEBUG -     Entering _get_cookie_and_crumb()
+2026-02-20 23:47:14,595 - DEBUG - cookie_mode = 'csrf'
+2026-02-20 23:47:14,595 - DEBUG -      Entering _get_crumb_csrf()
+2026-02-20 23:47:14,595 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['csrf', 1, 0])
+2026-02-20 23:47:14,709 - DEBUG - https://guce.yahoo.com:443 "GET /consent HTTP/1.1" 302 0
+2026-02-20 23:47:15,308 - DEBUG - https://www.yahoo.com:443 "GET /?guccounter=1 HTTP/1.1" 200 None
+2026-02-20 23:47:16,011 - DEBUG - Failed to find "csrfToken" in response
+2026-02-20 23:47:16,011 - DEBUG -      Exiting _get_crumb_csrf()
+2026-02-20 23:47:16,011 - DEBUG - toggling cookie strategy csrf -> basic
+2026-02-20 23:47:16,011 - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:16,012 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['basic', 1, 0])
+2026-02-20 23:47:16,012 - DEBUG - loaded persistent cookie
+2026-02-20 23:47:16,012 - DEBUG - reusing cookie
+2026-02-20 23:47:16,121 - DEBUG - https://query1.finance.yahoo.com:443 "GET /v1/test/getcrumb HTTP/1.1" 429 19
+2026-02-20 23:47:16,123 - DEBUG - crumb = 'Too Many Requests
+'
+2026-02-20 23:47:16,123 - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:16,123 - DEBUG -     Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:16,235 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/HRC=F?range=3mo&interval=1d&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:16,236 - DEBUG - response code=429
+2026-02-20 23:47:16,238 - DEBUG - Entering history()
+2026-02-20 23:47:16,238 - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['HRC=F', 1, 0])
+2026-02-20 23:47:16,239 - DEBUG -  Entering history()
+2026-02-20 23:47:16,239 - DEBUG - HRC=F: Yahoo GET parameters: {'range': '6mo', 'interval': '1mo', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-02-20 23:47:16,239 - DEBUG -   Entering get()
+2026-02-20 23:47:16,239 - DEBUG -    Entering _make_request()
+2026-02-20 23:47:16,239 - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/HRC=F
+2026-02-20 23:47:16,240 - DEBUG - params={'range': '6mo', 'interval': '1mo', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-02-20 23:47:16,240 - DEBUG -     Entering _get_cookie_and_crumb()
+2026-02-20 23:47:16,240 - DEBUG - cookie_mode = 'basic'
+2026-02-20 23:47:16,240 - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:16,242 - DEBUG - reusing cookie
+2026-02-20 23:47:16,242 - DEBUG - reusing crumb
+2026-02-20 23:47:16,242 - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:16,242 - DEBUG -     Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:16,351 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/HRC=F?range=6mo&interval=1mo&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:16,351 - DEBUG - response code=429
+2026-02-20 23:47:16,352 - DEBUG - toggling cookie strategy basic -> csrf
+2026-02-20 23:47:16,352 - DEBUG -     Entering _get_cookie_and_crumb()
+2026-02-20 23:47:16,353 - DEBUG - cookie_mode = 'csrf'
+2026-02-20 23:47:16,353 - DEBUG -      Entering _get_crumb_csrf()
+2026-02-20 23:47:16,353 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['csrf', 1, 0])
+2026-02-20 23:47:16,466 - DEBUG - https://guce.yahoo.com:443 "GET /consent HTTP/1.1" 302 0
+2026-02-20 23:47:17,361 - DEBUG - https://www.yahoo.com:443 "GET /?guccounter=1 HTTP/1.1" 200 None
+2026-02-20 23:47:18,091 - DEBUG - close.started
+2026-02-20 23:47:18,092 - DEBUG - close.complete
+2026-02-20 23:47:18,169 - DEBUG - Failed to find "csrfToken" in response
+2026-02-20 23:47:18,169 - DEBUG -      Exiting _get_crumb_csrf()
+2026-02-20 23:47:18,169 - DEBUG - toggling cookie strategy csrf -> basic
+2026-02-20 23:47:18,170 - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2026-02-20 23:47:18,170 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['basic', 1, 0])
+2026-02-20 23:47:18,170 - DEBUG - loaded persistent cookie
+2026-02-20 23:47:18,171 - DEBUG - reusing cookie
+2026-02-20 23:47:18,350 - DEBUG - https://query1.finance.yahoo.com:443 "GET /v1/test/getcrumb HTTP/1.1" 429 19
+2026-02-20 23:47:18,350 - DEBUG - crumb = 'Too Many Requests
+'
+2026-02-20 23:47:18,350 - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2026-02-20 23:47:18,351 - DEBUG -     Exiting _get_cookie_and_crumb()
+2026-02-20 23:47:18,454 - DEBUG - https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/HRC=F?range=6mo&interval=1mo&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=Too+Many+Requests%0D%0A HTTP/1.1" 429 19
+2026-02-20 23:47:18,454 - DEBUG - response code=429
+2026-02-20 23:47:18,754 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-02-20 23:47:18,754 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-02-20 23:47:18,809 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E28C9D4F0>
+2026-02-20 23:47:18,809 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000022E29147DD0> server_hostname='api.openai.com' timeout=5.0
+2026-02-20 23:47:18,870 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E28C9EB40>
+2026-02-20 23:47:18,870 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-02-20 23:47:18,871 - DEBUG - send_request_headers.complete
+2026-02-20 23:47:18,871 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-02-20 23:47:18,871 - DEBUG - send_request_body.complete
+2026-02-20 23:47:18,871 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-02-20 23:47:27,918 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 20 Feb 2026 18:17:29 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'persnal-rkdfe2'), (b'openai-processing-ms', b'8723'), (b'openai-project', b'proj_DBYXL8pA2s5GxG5IENIYMwm8'), (b'openai-version', b'2020-10-01'), (b'Server', b'cloudflare'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199345'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'196ms'), (b'x-request-id', b'req_7507d7e1d5af4c88bb445f925e016625'), (b'x-openai-proxy-wasm', b'v0.1'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=Fd365aVnlBGQlbRvMtByWioYNoZwP_5XUcsfr8ImFLA-1771611440.1233623-1.0.1.1-adKo4PJ0oRJMe1AYRSnvn6jYqCn1H4DHHjdd2gHatnJ8u78z4raHG7zg6PbAterwwnPEINHhiTGYPI3kjPJTpof3RLg3r8f6pINa1jMJueMFPEJ_mTe5Zdbb8nJjCNAT; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:47:29 GMT'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9d10000cceac9a78-NAG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-02-20 23:47:27,918 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-20 23:47:27,918 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-02-20 23:47:27,931 - DEBUG - receive_response_body.complete
+2026-02-20 23:47:27,932 - DEBUG - response_closed.started
+2026-02-20 23:47:27,934 - DEBUG - response_closed.complete
+2026-02-20 23:47:27,935 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Fri, 20 Feb 2026 18:17:29 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'persnal-rkdfe2', 'openai-processing-ms': '8723', 'openai-project': 'proj_DBYXL8pA2s5GxG5IENIYMwm8', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199345', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '196ms', 'x-request-id': 'req_7507d7e1d5af4c88bb445f925e016625', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=Fd365aVnlBGQlbRvMtByWioYNoZwP_5XUcsfr8ImFLA-1771611440.1233623-1.0.1.1-adKo4PJ0oRJMe1AYRSnvn6jYqCn1H4DHHjdd2gHatnJ8u78z4raHG7zg6PbAterwwnPEINHhiTGYPI3kjPJTpof3RLg3r8f6pINa1jMJueMFPEJ_mTe5Zdbb8nJjCNAT; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Fri, 20 Feb 2026 18:47:29 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d10000cceac9a78-NAG', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-02-20 23:47:27,935 - DEBUG - request_id: req_7507d7e1d5af4c88bb445f925e016625
+2026-02-20 23:47:28,394 - DEBUG - connect_tcp.started host='api.phidata.com' port=443 local_address=None timeout=60 socket_options=None
+2026-02-20 23:47:28,661 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E28CC29F0>
+2026-02-20 23:47:28,661 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000022E28CA7B50> server_hostname='api.phidata.com' timeout=60
+2026-02-20 23:47:29,169 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022E28CC2120>
+2026-02-20 23:47:29,170 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-02-20 23:47:29,170 - DEBUG - send_request_headers.complete
+2026-02-20 23:47:29,170 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-02-20 23:47:29,171 - DEBUG - send_request_body.complete
+2026-02-20 23:47:29,171 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-02-20 23:47:29,429 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 20 Feb 2026 18:17:30 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'72'), (b'Connection', b'keep-alive'), (b'server', b'uvicorn')])
+2026-02-20 23:47:29,429 - INFO - HTTP Request: POST https://api.phidata.com/v1/telemetry/agent/run/create "HTTP/1.1 200 OK"
+2026-02-20 23:47:29,430 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-02-20 23:47:29,430 - DEBUG - receive_response_body.complete
+2026-02-20 23:47:29,430 - DEBUG - response_closed.started
+2026-02-20 23:47:29,430 - DEBUG - response_closed.complete
+2026-02-20 23:47:29,432 - DEBUG - close.started
+2026-02-20 23:47:29,432 - DEBUG - close.complete
+2026-02-20 23:48:15,974 - DEBUG - close.started
+2026-02-20 23:48:15,975 - DEBUG - close.complete

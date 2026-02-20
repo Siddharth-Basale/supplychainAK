@@ -35,7 +35,7 @@ class CommodityPriceFetcher:
                 model=OpenAIChat(id="gpt-4o-mini", temperature=0.4),
                 system_prompt=self.SYSTEM_PROMPT,
                 tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],
-                debug_mode=True
+                debug_mode=False,  # True can trigger Pydantic model_dump(by_alias=None) in libs
             )
 
             query = f"Current market price range of {commodity_name} in USD per kg from Indian markets"
@@ -55,7 +55,13 @@ class CommodityPriceFetcher:
             return {"price": "Not available"}
 
         except Exception as e:
-            return {"error": str(e)}
+            err_msg = str(e)
+            if "by_alias" in err_msg and "NoneType" in err_msg:
+                return {
+                    "error": "Price service configuration error. Please try again or contact support.",
+                    "price": "Not available",
+                }
+            return {"error": err_msg}
 
 
 class CommodityAnalytics:
