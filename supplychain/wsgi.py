@@ -8,6 +8,12 @@ https://docs.djangoproject.com/en/5.1/howto/deployment/wsgi/
 """
 
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env for gunicorn/uWSGI etc.
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
 import inspect
 
 if not hasattr(inspect, 'getargspec'):

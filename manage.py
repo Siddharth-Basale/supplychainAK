@@ -3,6 +3,11 @@
 import os
 import sys
 
+# Load .env before Django so env vars are available everywhere
+from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).resolve().parent / ".env")
+
 
 def main():
     """Run administrative tasks."""

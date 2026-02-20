@@ -1,4 +1,10 @@
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env when script is run standalone (not via Django)
+load_dotenv(Path(__file__).resolve().parent / ".env")
+
 from typing import Dict, Optional
 from phi.agent import Agent
 from phi.model.google import Gemini
