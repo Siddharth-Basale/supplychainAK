@@ -18,6 +18,21 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
+# Fix "by_alias: NoneType cannot be converted to PyBool" on some machines (e.g. different
+# Pydantic/OS builds). Ensures by_alias is never None when passed to model_dump.
+try:
+    import pydantic
+    _model_dump_orig = pydantic.BaseModel.model_dump
+
+    def _model_dump_patch(self, *args, by_alias=None, **kwargs):
+        if by_alias is None:
+            by_alias = False
+        return _model_dump_orig(self, *args, by_alias=by_alias, **kwargs)
+
+    pydantic.BaseModel.model_dump = _model_dump_patch
+except Exception:
+    pass  # don't break startup if pydantic structure changes
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 

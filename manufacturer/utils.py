@@ -72,15 +72,15 @@ class CommodityAnalytics:
         try:
             agent = Agent(
                 model=OpenAIChat(id="gpt-4o-mini", temperature=0.2),
-                debug_mode=True,
+                debug_mode=False,
                 markdown=True,
+                show_tool_calls=False,
                 tools=[YFinanceTools(
                     historical_prices=True,
                     analyst_recommendations=True,
                     company_news=True,
                     technical_indicators=True,
                 )],
-                show_tool_calls=True,
                 description="You are a supply chain business analyst that provides procurement recommendations based on commodity data.",
                 instructions=[
                     "1. Map commodities to Yahoo Finance tickers.",
@@ -150,4 +150,10 @@ class CommodityAnalytics:
             return {"analytics": response.content if response else "No analytics available"}
 
         except Exception as e:
-            return {"error": str(e)}
+            err_msg = str(e)
+            if "by_alias" in err_msg and "NoneType" in err_msg:
+                return {
+                    "error": "Analytics service configuration error. Please try again or contact support.",
+                    "analytics": "No analytics available.",
+                }
+            return {"error": err_msg}

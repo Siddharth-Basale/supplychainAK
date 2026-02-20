@@ -543,4 +543,6 @@ def commodity_analytics(request):
 
     analyzer = CommodityAnalytics()
     analytics_data = analyzer.get_analytics(commodity, category)
-    return JsonResponse(analytics_data)
+    # Ensure JSON-serializable values (avoid Pydantic/serialization issues across envs)
+    safe_data = {str(k): str(v) for k, v in analytics_data.items()}
+    return JsonResponse(safe_data)
